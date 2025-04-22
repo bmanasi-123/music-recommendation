@@ -1,4 +1,5 @@
-MoodTune (Mood-based Music Recommender)
+**MoodTune (Mood-based Music Recommender)
+
 MoodTune is a FastAPI-based microservice that suggests music based on your mood and local weather. It integrates real-time data from OpenWeatherMap and music recommendations from Last.fm.
 ________________________________________
 📁 Project Versions
@@ -22,12 +23,13 @@ ________________________________________
 👉 http://localhost:8000/docs (Swagger UI)
 🧾 Or view the raw OpenAPI schema:
 👉 http://localhost:8000/openapi.json
-Endpoint	Method	Description
-/	GET	Homepage (if frontend enabled)
-/recommend-song	POST	Main endpoint – returns mood-weather matched music
-/weather/{city}	GET	Fetch weather by city
-/song/{title}	GET	Search a song by title
-/song/{mood}	GET	Suggest a song based on mood
+
+Endpoint	      Method	     Description
+/	               GET	     Homepage (if frontend enabled)
+/recommend-song	 POST	     Main endpoint – returns mood-weather matched music
+/weather/{city}	 GET	     Fetch weather by city
+/song/{title}	   GET	     Search a song by title
+/song/{mood}	   GET	     Suggest a song based on mood
 ________________________________________
 ⚙️ Config & Secrets
 Edit your config file for each version (e.g., config.yaml):
