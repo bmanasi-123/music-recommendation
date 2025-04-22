@@ -1,0 +1,9 @@
+httpx
+pyYAML
+pytest
+pytest-asyncio
+fastapi
+uvicorn
+jinja2
+pydantic
+requests

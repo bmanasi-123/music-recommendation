@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MoodTune UI</title>
+  <link rel="stylesheet" href="{{ request.url_for('static', path='style.css') }}">
+</head>
+<body>
+  <div class="overlay">
+    <h1>Welcome to MoodTune 🎧</h1>
+    <form id="moodForm">
+      <input id="city" type="text" placeholder="Enter city..." />
+      <input id="mood" type="text" placeholder="Enter mood..." />
+      
+      <br />
+      <button type="submit">Get My Tune</button> 
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("moodForm");
+    const resultBox = document.getElementById("result");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const mood = document.getElementById("mood").value.trim();
+      const city = document.getElementById("city").value.trim();
+
+      if (!mood || !city) {
+        resultBox.innerText = "Please enter both mood and city.";
+        return;
+      }
+
+      try {
+        const response = await fetch("/recommend-song", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ mood, city }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            resultBox.innerHTML = `
+            <p>🌤️ Weather: <strong>${data.weather_description}</strong></p>
+            <p>${data.message}</p>
+            ${
+            data.song
+                ? `<p>🎶 Song: <strong>${data.song.title}</strong> by <em>${data.song.artist}</em></p>`
+                : "<p>No song recommendation available</p>"
+            }
+        `;
+        } else {
+          resultBox.innerText = data.detail || "Something went wrong!";
+        }
+      } catch (err) {
+        console.error(err);
+        resultBox.innerText = "Failed to fetch result. Please try again.";
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+<!-- <p>🌦️ Weather: <strong>${data.weather}</strong></p> -->

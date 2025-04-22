@@ -1,0 +1,13 @@
+# config.yaml
+
+openweather:
+  base_url: "https://api.openweathermap.org/data/2.5/weather"
+  api_key: "OPENWEATHER_API_KEY"
+
+lastfm:
+  base_url: "https://ws.audioscrobbler.com/2.0/"
+  api_key: "LASTFM_API_KEY"
+
+moodtuneApi:
+  gateway_url: "AWS_LAMBDA_APIGATEWAY_URL"
+  route: "route_name" # given while creating

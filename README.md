@@ -1,5 +1,6 @@
 # 🎵 **MoodTune** – *Mood-Based Music Recommender*
 
+![MoodTune UI](assets/moodtune-ui.png)
 **MoodTune** is a FastAPI-based microservice that suggests music based on your **mood** and **local weather**. It integrates real-time data from **OpenWeatherMap** and music recommendations from **Last.fm**.
 
 ---
