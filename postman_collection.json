@@ -1,0 +1,84 @@
+{
+  "info": {
+    "name": "MoodTune API",
+    "_postman_id": "a6b1c8f1-1234-4df6-aaaa-moodtune123",
+    "description": "Postman collection for testing MoodTune FastAPI endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Homepage (UI)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "Recommend Song",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"mood\": \"happy\",\n  \"city\": \"London\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/recommend-song",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["recommend-song"]
+        }
+      }
+    },
+    {
+      "name": "Get Weather by City",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/weather/Delhi",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["weather", "Delhi"]
+        }
+      }
+    },
+    {
+      "name": "Search Song by Title",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/song/Shape of You",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["song", "Shape of You"]
+        }
+      }
+    },
+    {
+      "name": "Suggest Song by Mood",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/song/romantic",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["song", "romantic"]
+        }
+      }
+    }
+  ]
+}
